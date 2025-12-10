@@ -1,10 +1,12 @@
 import React from "react";
 
 export default function ServiceCard({ service }) {
+  const bullets = service.bulletPoints ?? [];
+
   return (
     <div style={styles.card}>
       <img
-        src={service.image_url}
+        src={service.imageUrl}
         alt={service.title}
         style={styles.image}
       />
@@ -12,17 +14,17 @@ export default function ServiceCard({ service }) {
       <h2 style={styles.title}>{service.title}</h2>
       <p style={styles.duration}>{service.duration}</p>
 
-      <p style={styles.desc}>{service.short_desc}</p>
+      <p style={styles.desc}>{service.shortDesc}</p>
 
-      {service.bullet_points?.length > 0 && (
+      {bullets.length > 0 && (
         <ul style={styles.list}>
-          {service.bullet_points.map((item, idx) => (
+          {bullets.map((item, idx) => (
             <li key={idx}>{item}</li>
           ))}
         </ul>
       )}
 
-      <p style={styles.price}>от {service.price_from} ₽</p>
+      <p style={styles.price}>от {service.priceFrom} ₽</p>
     </div>
   );
 }

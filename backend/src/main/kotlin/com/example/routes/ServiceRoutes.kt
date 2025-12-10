@@ -43,7 +43,7 @@ fun Route.serviceRoutes() {
 @Serializable
 data class CreateServiceRequest(
     val title: String,
-    val imageUrl: String = "/static/img/sora.png",
+    val imageUrl: String,
     val duration: String,
     val shortDesc: String,
     val bulletPoints: List<String>,
