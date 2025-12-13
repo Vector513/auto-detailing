@@ -1,5 +1,6 @@
 package com.example.config
 
+import com.example.models.Bookings
 import com.example.models.News
 import com.example.models.Services
 import com.example.models.toJsonString
@@ -20,7 +21,7 @@ object DatabaseFactory {
                 // Create tables and add missing columns on startup
                 // For production, use proper migration tools (e.g., Flyway)
                 @Suppress("DEPRECATION")
-                SchemaUtils.createMissingTablesAndColumns(Services, News)
+                SchemaUtils.createMissingTablesAndColumns(Services, News, Bookings)
             }
             if (autoSeedEnabled()) {
                 seedServicesIfEmpty()
