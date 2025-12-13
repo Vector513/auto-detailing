@@ -4,6 +4,7 @@ import com.example.models.Services
 import com.example.models.toJsonString
 import com.example.models.toServiceDto
 import io.ktor.http.HttpStatusCode
+import io.ktor.http.Parameters
 import io.ktor.server.application.call
 import io.ktor.server.request.receive
 import io.ktor.server.response.respond
@@ -19,7 +20,20 @@ import org.jetbrains.exposed.sql.transactions.transaction
 fun Route.serviceRoutes() {
     route("/services") {
         get {
-            val services = transaction { Services.selectAll().map { it.toServiceDto() } }
+            val queryParameters: Parameters = call.request.queryParameters
+            val limitParam = queryParameters["limit"] ?: queryParameters["limits"]
+            val limit = limitParam?.toIntOrNull()
+
+            val services = transaction {
+                val allServices = Services.selectAll().map { it.toServiceDto() }
+                
+                if (limit != null && limit > 0) {
+                    allServices.take(limit)
+                } else {
+                    allServices
+                }
+            }
+            
             call.respond(services)
         }
 
