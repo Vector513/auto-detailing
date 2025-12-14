@@ -1,3 +1,7 @@
+/* ========================================
+   HEADER / NAVIGATION
+   ======================================== */
+
 .header {
     width: 100%;
     max-width: 1440px;
@@ -71,12 +75,6 @@
     color: #AE9B84;
 }
 
-video {
-    height: 770px;
-    width: 100%;
-    opacity: 50%;
-}
-
 .cta-section {
     margin-left: 43px;
 }
@@ -90,6 +88,11 @@ video {
     font-family: SpectralSC, sans-serif;
     border: none;
 }
+
+
+/* ========================================
+   MAIN CONTENT / HERO SECTION
+   ======================================== */
 
 .cover {
     width: 1440px;
@@ -125,6 +128,11 @@ video {
     margin-top: 512px;
 }
 
+
+/* ========================================
+   SERVICES SECTION
+   ======================================== */
+
 .services__title {
     width: 298px;
     height: 64px;
@@ -137,6 +145,13 @@ video {
     font-weight: 500;
     font-size: 48px;
 }
+
+.services__content {
+    margin-bottom: 40px;
+}
+
+
+/* Services Cards */
 
 .list__cards {
     display: flex;
@@ -154,14 +169,17 @@ video {
     border-radius: 15px;
 }
 
-.card__1 .card__5 {
-    margin-left: 94px;
-}
-
 .card {
     width: 100%;
     height: 100%;
 }
+
+.card__1 .card__5 {
+    margin-left: 94px;
+}
+
+
+/* Service Card Header */
 
 .services__icon-background {
     display: flex;
@@ -196,6 +214,9 @@ video {
     margin-top: 8px;
 }
 
+
+/* Service Card Description */
+
 .services__description {
     width: 283px;
     height: 168px;
@@ -210,12 +231,6 @@ video {
     font-family: SpectralSC, sans-serif;
 }
 
-.services__list {
-    list-style: disc;
-    font-size: 9px;
-    padding-left: 20px;
-}
-
 .services__body {
     width: 277px;
     height: 162px;
@@ -223,10 +238,19 @@ video {
     margin-left: 6px;
 }
 
+.services__list {
+    list-style: disc;
+    font-size: 9px;
+    padding-left: 20px;
+}
+
 .services__list-text {
     font-size: 12px;
     font-family: SpectralSC, sans-serif;
 }
+
+
+/* Service Card Footer / Buy Button */
 
 .btn-buy {
     display: flex;
@@ -275,12 +299,13 @@ video {
 }
 
 
-/* News page styles */
+/* ========================================
+   NEWS PAGE
+   ======================================== */
 
 .news {
     width: 100%;
     max-width: 1440px;
-    /* margin-top: 80px; */
     padding: 0 20px;
 }
 
@@ -300,8 +325,10 @@ video {
     font-weight: 500;
     font-size: 48px;
     font-family: SpectralSC, sans-serif;
-    /* color: #AE9B84; */
 }
+
+
+/* News List */
 
 .news__list {
     display: flex;
@@ -358,6 +385,9 @@ video {
     text-transform: uppercase;
 }
 
+
+/* News Show More Button */
+
 .news__show-more {
     display: flex;
     justify-content: center;
@@ -383,16 +413,60 @@ video {
 }
 
 
-/* Gallery, About, Contacts page styles */
+/* ========================================
+   CONTACTS PAGE
+   ======================================== */
 
-.gallery__content,
-.about__content,
+
+/* Contacts Hero Section */
+
+.contacts-hero {
+    width: 100%;
+    max-width: 1440px;
+    height: 533px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.contacts-hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url("/images/background_auto_contacts.svg");
+    background-position: center;
+    background-size: cover;
+    opacity: 0.4;
+    z-index: 0;
+}
+
+.contacts-hero__content {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    width: 100%;
+}
+
+.contacts-hero .contacts__title {
+    margin-top: 30px;
+}
+
+
+/* Contacts Section */
+
+.contacts {
+    width: 100%;
+    max-width: 1440px;
+}
+
 .contacts__content {
     margin-bottom: 40px;
 }
 
-.gallery__title,
-.about__title,
 .contacts__title {
     width: 298px;
     height: 64px;
@@ -401,17 +475,107 @@ video {
     margin: 0 auto;
 }
 
-.gallery__heading,
-.about__heading,
 .contacts__heading {
     font-weight: 500;
     font-size: 48px;
 }
 
-.gallery,
-.about,
-.contacts {
+
+/* Contacts List */
+
+.contacts__list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    align-items: center;
+    margin-top: 60px;
+}
+
+.contacts__item {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    font-family: SpectralSC, sans-serif;
+    font-size: 48px;
+    color: #FFFFFF;
+}
+
+.contacts__icon {
+    width: 48px;
+    height: 48px;
+    flex-shrink: 0;
+}
+
+.contacts__text {
+    font-size: 48px;
+    color: #FFFFFF;
+    font-family: SpectralSC, sans-serif;
+}
+
+
+/* ========================================
+   GALLERY PAGE
+   ======================================== */
+
+.gallery {
     width: 100%;
     max-width: 1440px;
-    /* padding: 40px 20px; */
+}
+
+.gallery__content {
+    margin-bottom: 40px;
+}
+
+.gallery__title {
+    width: 298px;
+    height: 64px;
+    font-size: 48px;
+    text-align: center;
+    margin: 0 auto;
+}
+
+.gallery__heading {
+    font-weight: 500;
+    font-size: 48px;
+}
+
+
+/* ========================================
+   ABOUT PAGE
+   ======================================== */
+
+.about {
+    width: 100%;
+    max-width: 1440px;
+}
+
+.about__content {
+    margin-bottom: 40px;
+}
+
+.about__title {
+    width: 298px;
+    height: 64px;
+    font-size: 48px;
+    text-align: center;
+    margin: 0 auto;
+}
+
+.about__heading {
+    font-weight: 500;
+    font-size: 48px;
+}
+
+
+/* ========================================
+   UTILITIES / MISC
+   ======================================== */
+
+video {
+    height: 770px;
+    width: 100%;
+    opacity: 50%;
 }

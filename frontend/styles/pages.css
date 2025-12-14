@@ -1,0 +1,28 @@
+/* ========================================
+   COMMON PAGE STYLES
+   ======================================== */
+
+/* Shared styles for page titles and headings */
+.gallery__content,
+.about__content,
+.contacts__content {
+    margin-bottom: 40px;
+}
+
+.gallery__title,
+.about__title,
+.contacts__title {
+    width: 298px;
+    height: 64px;
+    font-size: 48px;
+    text-align: center;
+    margin: 0 auto;
+}
+
+.gallery__heading,
+.about__heading,
+.contacts__heading {
+    font-weight: 500;
+    font-size: 48px;
+}
+

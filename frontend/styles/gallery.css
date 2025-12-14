@@ -1,0 +1,26 @@
+/* ========================================
+   GALLERY PAGE
+   ======================================== */
+
+.gallery {
+    width: 100%;
+    max-width: 1440px;
+}
+
+.gallery__content {
+    margin-bottom: 40px;
+}
+
+.gallery__title {
+    width: 298px;
+    height: 64px;
+    font-size: 48px;
+    text-align: center;
+    margin: 0 auto;
+}
+
+.gallery__heading {
+    font-weight: 500;
+    font-size: 48px;
+}
+

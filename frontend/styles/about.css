@@ -1,0 +1,26 @@
+/* ========================================
+   ABOUT PAGE
+   ======================================== */
+
+.about {
+    width: 100%;
+    max-width: 1440px;
+}
+
+.about__content {
+    margin-bottom: 40px;
+}
+
+.about__title {
+    width: 298px;
+    height: 64px;
+    font-size: 48px;
+    text-align: center;
+    margin: 0 auto;
+}
+
+.about__heading {
+    font-weight: 500;
+    font-size: 48px;
+}
+
