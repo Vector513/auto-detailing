@@ -1,5 +1,152 @@
 /* ========================================
-   SERVICES SECTION
+   GLOBAL STYLES
+   ======================================== */
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    width: 100%;
+    max-width: 1440px;
+    background-color: #000000;
+    font-family: AlegreyaSC, sans-serif;
+    color: #fff;
+    margin: 0 auto;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+button {
+    font: inherit;
+    cursor: pointer;
+    border: none;
+    background: none;
+}
+
+ul,
+ol {
+    list-style: none;
+}
+
+video {
+    height: 770px;
+    width: 100%;
+    opacity: 50%;
+}
+
+
+/* ========================================
+   HEADER / NAVIGATION
+   ======================================== */
+
+.header {
+    width: 100%;
+    max-width: 1440px;
+    background-color: #000000;
+}
+
+.header__content {
+    display: flex;
+    height: 162px;
+    align-items: center;
+}
+
+.header__inner {
+    display: flex;
+    height: 100px;
+    width: 371px;
+    align-items: center;
+    margin-left: 17px;
+}
+
+.name__company {
+    display: flex;
+    height: 100px;
+    width: 262px;
+    align-items: center;
+    justify-content: center;
+    margin-left: 13px;
+    font-size: 36px;
+    font-family: Aboreto;
+    color: #AE9B84;
+}
+
+.header__logo {
+    display: block;
+    width: 60px;
+    height: 60px;
+}
+
+.header__menu {
+    display: flex;
+    width: 780px;
+    height: 100px;
+    align-items: center;
+}
+
+.header__menu-list {
+    display: flex;
+    list-style: none;
+}
+
+.header__menu-item {
+    display: flex;
+    width: 130px;
+    height: 75px;
+    justify-content: center;
+    align-items: center;
+}
+
+.header__menu-text {
+    font-size: 24px;
+    text-decoration: none;
+    color: #FFFFFF;
+    transition: color 0.3s;
+}
+
+.header__menu-link--active {
+    color: #AE9B84 !important;
+}
+
+.header__menu-link:hover {
+    color: #AE9B84;
+}
+
+.cta-section {
+    margin-left: 43px;
+}
+
+.cta-button {
+    width: 188px;
+    height: 48px;
+    background-color: #AE9B84;
+    border-radius: 8px;
+    font-size: 24px;
+    font-family: SpectralSC, sans-serif;
+    border: none;
+}
+
+
+/* ========================================
+   SERVICES PAGE
    ======================================== */
 
 .services__title {
@@ -19,7 +166,9 @@
     margin-bottom: 40px;
 }
 
+
 /* Services Cards */
+
 .list__cards {
     display: flex;
     justify-content: center;
@@ -45,7 +194,9 @@
     margin-left: 94px;
 }
 
+
 /* Service Card Header */
+
 .services__icon-background {
     display: flex;
     height: 35px;
@@ -79,7 +230,9 @@
     margin-top: 8px;
 }
 
+
 /* Service Card Description */
+
 .services__description {
     width: 283px;
     height: 168px;
@@ -112,7 +265,9 @@
     font-family: SpectralSC, sans-serif;
 }
 
+
 /* Service Card Footer / Buy Button */
+
 .btn-buy {
     display: flex;
     background-color: #000000;
@@ -158,4 +313,3 @@
 .services__price-value {
     font-size: 20px;
 }
-

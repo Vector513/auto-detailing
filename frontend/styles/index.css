@@ -1,4 +1,59 @@
 /* ========================================
+   GLOBAL STYLES
+   ======================================== */
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    width: 100%;
+    max-width: 1440px;
+    background-color: #000000;
+    font-family: AlegreyaSC, sans-serif;
+    color: #fff;
+    margin: 0 auto;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+button {
+    font: inherit;
+    cursor: pointer;
+    border: none;
+    background: none;
+}
+
+ul,
+ol {
+    list-style: none;
+}
+
+video {
+    height: 770px;
+    width: 100%;
+    opacity: 50%;
+}
+
+
+/* ========================================
    HEADER / NAVIGATION
    ======================================== */
 
@@ -91,8 +146,11 @@
 
 
 /* ========================================
-   MAIN CONTENT / HERO SECTION
+   INDEX PAGE (Главная страница)
    ======================================== */
+
+
+/* Hero Section */
 
 .cover {
     width: 1440px;
@@ -129,9 +187,7 @@
 }
 
 
-/* ========================================
-   SERVICES SECTION
-   ======================================== */
+/* Services Section */
 
 .services__title {
     width: 298px;
@@ -299,9 +355,7 @@
 }
 
 
-/* ========================================
-   NEWS PAGE
-   ======================================== */
+/* News Section on Index Page */
 
 .news {
     width: 100%;
@@ -383,199 +437,4 @@
     color: #FFFFFF;
     max-width: 800px;
     text-transform: uppercase;
-}
-
-
-/* News Show More Button */
-
-.news__show-more {
-    display: flex;
-    justify-content: center;
-    margin-top: 40px;
-    margin-bottom: 40px;
-}
-
-.news__show-more-button {
-    font-family: SpectralSC, sans-serif;
-    font-size: 24px;
-    font-weight: 400;
-    color: #AE9B84;
-    background: none;
-    border: none;
-    cursor: pointer;
-    text-transform: uppercase;
-    padding: 10px 20px;
-    transition: opacity 0.3s;
-}
-
-.news__show-more-button:hover {
-    opacity: 0.8;
-}
-
-
-/* ========================================
-   CONTACTS PAGE
-   ======================================== */
-
-
-/* Contacts Hero Section */
-
-.contacts-hero {
-    width: 100%;
-    max-width: 1440px;
-    height: 533px;
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.contacts-hero::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-image: url("/images/background_auto_contacts.svg");
-    background-position: center;
-    background-size: cover;
-    opacity: 0.4;
-    z-index: 0;
-}
-
-.contacts-hero__content {
-    position: relative;
-    z-index: 1;
-    text-align: center;
-    width: 100%;
-}
-
-.contacts-hero .contacts__title {
-    margin-top: 30px;
-}
-
-
-/* Contacts Section */
-
-.contacts {
-    width: 100%;
-    max-width: 1440px;
-}
-
-.contacts__content {
-    margin-bottom: 40px;
-}
-
-.contacts__title {
-    width: 298px;
-    height: 64px;
-    font-size: 48px;
-    text-align: center;
-    margin: 0 auto;
-}
-
-.contacts__heading {
-    font-weight: 500;
-    font-size: 48px;
-}
-
-
-/* Contacts List */
-
-.contacts__list {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    display: flex;
-    flex-direction: column;
-    gap: 30px;
-    align-items: center;
-    margin-top: 60px;
-}
-
-.contacts__item {
-    display: flex;
-    align-items: center;
-    gap: 20px;
-    font-family: SpectralSC, sans-serif;
-    font-size: 48px;
-    color: #FFFFFF;
-}
-
-.contacts__icon {
-    width: 48px;
-    height: 48px;
-    flex-shrink: 0;
-}
-
-.contacts__text {
-    font-size: 48px;
-    color: #FFFFFF;
-    font-family: SpectralSC, sans-serif;
-}
-
-
-/* ========================================
-   GALLERY PAGE
-   ======================================== */
-
-.gallery {
-    width: 100%;
-    max-width: 1440px;
-}
-
-.gallery__content {
-    margin-bottom: 40px;
-}
-
-.gallery__title {
-    width: 298px;
-    height: 64px;
-    font-size: 48px;
-    text-align: center;
-    margin: 0 auto;
-}
-
-.gallery__heading {
-    font-weight: 500;
-    font-size: 48px;
-}
-
-
-/* ========================================
-   ABOUT PAGE
-   ======================================== */
-
-.about {
-    width: 100%;
-    max-width: 1440px;
-}
-
-.about__content {
-    margin-bottom: 40px;
-}
-
-.about__title {
-    width: 298px;
-    height: 64px;
-    font-size: 48px;
-    text-align: center;
-    margin: 0 auto;
-}
-
-.about__heading {
-    font-weight: 500;
-    font-size: 48px;
-}
-
-
-/* ========================================
-   UTILITIES / MISC
-   ======================================== */
-
-video {
-    height: 770px;
-    width: 100%;
-    opacity: 50%;
 }
