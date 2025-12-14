@@ -63,7 +63,7 @@ function displayServices(services) {
             ${bulletPointsHtml}
           </ul>
         </div>
-        <button class="btn-buy">
+        <button class="btn-buy" data-service-title="${service.title}">
           <img src="/images/time_icon.png" class="logo__buy" onerror="this.style.display='none'">
           <div class="waiting__time">
             <span class="time">${service.duration}</span>
@@ -76,6 +76,18 @@ function displayServices(services) {
     `;
 
         servicesList.appendChild(serviceItem);
+    });
+
+    // Добавляем обработчики клика на кнопки услуг
+    const buyButtons = document.querySelectorAll('.btn-buy');
+    buyButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            const serviceTitle = button.getAttribute('data-service-title');
+            if (serviceTitle) {
+                // Переходим на страницу записи с параметром услуги
+                window.location.href = `booking.html?service=${encodeURIComponent(serviceTitle)}`;
+            }
+        });
     });
 }
 

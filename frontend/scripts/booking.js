@@ -26,6 +26,9 @@ async function loadServices() {
                 serviceSelect.appendChild(option);
             });
             console.log(`Добавлено ${services.length} услуг в выпадающий список`);
+
+            // Вызываем автозаполнение после загрузки услуг
+            autoFillService();
         } else {
             console.warn('Список услуг пуст');
         }
@@ -133,6 +136,30 @@ async function handleSubmit(event) {
     } catch (error) {
         console.error('Error submitting booking:', error);
         alert('Произошла ошибка при отправке заявки. Пожалуйста, попробуйте позже.');
+    }
+}
+
+// Auto-fill service from URL parameter
+function autoFillService() {
+    const urlParams = new URLSearchParams(window.location.search);
+    const serviceParam = urlParams.get('service');
+
+    if (serviceParam) {
+        const serviceSelect = document.getElementById('service');
+        if (serviceSelect) {
+            // Ждем, пока услуги загрузятся
+            const checkService = setInterval(() => {
+                const option = Array.from(serviceSelect.options).find(
+                    opt => opt.value === decodeURIComponent(serviceParam)
+                );
+                if (option) {
+                    serviceSelect.value = option.value;
+                    clearInterval(checkService);
+                }
+                // Останавливаем проверку через 5 секунд
+                setTimeout(() => clearInterval(checkService), 5000);
+            }, 100);
+        }
     }
 }
 
