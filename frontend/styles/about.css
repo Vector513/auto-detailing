@@ -161,18 +161,101 @@ video {
 }
 
 .about__content {
-    margin-bottom: 40px;
+    margin-bottom: 10px;
 }
 
 .about__title {
-    width: 298px;
+    width: auto;
+    min-width: 298px;
     height: 64px;
     font-size: 48px;
     text-align: center;
     margin: 0 auto;
+    white-space: nowrap;
 }
 
 .about__heading {
     font-weight: 500;
     font-size: 48px;
+    font-family: SpectralSC, sans-serif;
+    white-space: nowrap;
+}
+
+
+/* About Hero Section */
+
+.about-hero {
+    width: 100%;
+    max-width: 1440px;
+    min-height: 800px;
+    position: relative;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    padding: 0 20px 20px 20px;
+    margin-top: 0;
+}
+
+.about-hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url("/images/background_auto_about.svg");
+    background-position: center bottom;
+    background-size: cover;
+    opacity: 0.6;
+    z-index: 0;
+}
+
+.about-hero__content {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    max-width: 1200px;
+    height: 100%;
+    min-height: 800px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding-top: 0;
+}
+
+.about__text-content {
+    width: 100%;
+    height: 100%;
+    min-height: 800px;
+    text-align: center;
+    color: #FFFFFF;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding-top: 20px;
+}
+
+.about__main-text {
+    font-family: SpectralSC, sans-serif;
+    font-size: 24px;
+    font-weight: 400;
+    line-height: 1.6;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-top: 0;
+    margin-bottom: 0;
+    padding-top: 83px;
+}
+
+.about__motto {
+    font-family: SpectralSC, sans-serif;
+    font-size: 24px;
+    font-weight: 400;
+    line-height: 1.6;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    font-style: italic;
+    color: #AE9B84;
+    margin-top: auto;
+    margin-bottom: 61px;
 }
