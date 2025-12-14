@@ -1,0 +1,23 @@
+@font-face {
+  font-family: Aboreto;
+  src:
+    url('./Aboreto-Regular.ttf');
+  font-weight: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: AlegreyaSC;
+  src:
+    url('./AlegreyaSC-Regular.ttf');
+  font-weight: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: SpectralSC;
+  src:
+    url('./SpectralSC-Regular.ttf');
+  font-weight: normal;
+  font-display: swap;
+}
