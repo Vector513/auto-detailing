@@ -1,7 +1,10 @@
 package com.example.config
 
+import com.example.models.Bookings
+import com.example.models.News
 import com.example.models.Services
 import com.example.models.toJsonString
+import java.time.LocalDate
 import com.zaxxer.hikari.HikariConfig
 import com.zaxxer.hikari.HikariDataSource
 import org.jetbrains.exposed.sql.Database
@@ -15,11 +18,14 @@ object DatabaseFactory {
         Database.connect(hikari())
         transaction {
             if (autoMigrateEnabled()) {
-                // Create tables on startup; replace with migrations for production
-                SchemaUtils.createMissingTablesAndColumns(Services)
+                // Create tables and add missing columns on startup
+                // For production, use proper migration tools (e.g., Flyway)
+                @Suppress("DEPRECATION")
+                SchemaUtils.createMissingTablesAndColumns(Services, News, Bookings)
             }
             if (autoSeedEnabled()) {
                 seedServicesIfEmpty()
+                seedNewsIfEmpty()
             }
         }
     }
@@ -152,6 +158,89 @@ object DatabaseFactory {
         }
     }
 
+    private fun seedNewsIfEmpty() {
+        // Check if table is empty - if so, populate with initial data
+        val isEmpty = News.selectAll().empty()
+        if (!isEmpty) return
+
+        val seeds = listOf(
+            NewsSeed(
+                title = "Открытие нового филиала",
+                imageUrl = "/static/img/news1.jpg",
+                description = listOf(
+                    "Рады сообщить об открытии нового филиала нашего авто-детейлинг центра в центре города",
+                    "Новый филиал расположен в центре города",
+                    "Современное оборудование от ведущих производителей",
+                    "Опытные мастера с многолетним стажем",
+                    "Удобная парковка для клиентов",
+                    "Работаем ежедневно с 9:00 до 21:00"
+                ),
+                date = LocalDate.now().minusDays(5)
+            ),
+            NewsSeed(
+                title = "Скидка 20% на керамическое покрытие",
+                imageUrl = "/static/img/news2.jpg",
+                description = listOf(
+                    "Специальное предложение! До конца месяца скидка 20% на услугу керамического покрытия кузова",
+                    "Скидка действует до конца месяца",
+                    "Керамическое покрытие защищает кузов от сколов и царапин",
+                    "Гидрофобный эффект сохраняется до 3 лет",
+                    "Защита от УФ-излучения и реагентов",
+                    "Применяем только сертифицированные материалы"
+                ),
+                date = LocalDate.now().minusDays(3)
+            ),
+            NewsSeed(
+                title = "Новое оборудование для полировки",
+                imageUrl = "/static/img/news3.jpg",
+                description = listOf(
+                    "Мы обновили парк оборудования и теперь используем новейшие полировальные машины от ведущих производителей",
+                    "Полировальные машины Rupes BigFoot",
+                    "Профессиональные пасты и полироли",
+                    "Удаление царапин и swirl-маркеров",
+                    "Восстановление глянца ЛКП",
+                    "Гарантия качества работ"
+                ),
+                date = LocalDate.now().minusDays(7)
+            ),
+            NewsSeed(
+                title = "Акция: Комплексная защита автомобиля",
+                imageUrl = "/static/img/news4.jpg",
+                description = listOf(
+                    "При заказе полного комплекса услуг по защите кузова и салона - скидка 15%",
+                    "Скидка 15% на комплекс услуг",
+                    "Полировка кузова с удалением дефектов",
+                    "Керамическое покрытие в 2 слоя",
+                    "Химчистка салона с защитой",
+                    "Гидрофобное покрытие всех стекол",
+                    "Антидождь на лобовое стекло"
+                ),
+                date = LocalDate.now().minusDays(2)
+            ),
+            NewsSeed(
+                title = "Мастер-класс по уходу за автомобилем",
+                imageUrl = "/static/img/news5.jpg",
+                description = listOf(
+                    "Приглашаем всех желающих на бесплатный мастер-класс по правильному уходу за автомобилем",
+                    "Бесплатное участие для всех желающих",
+                    "Обучение правильной мойке автомобиля",
+                    "Техники полировки вручную",
+                    "Выбор средств для защиты кузова",
+                    "Практические советы от профессионалов",
+                    "Регистрация обязательна"
+                ),
+                date = LocalDate.now().plusDays(7)
+            )
+        )
+
+        News.batchInsert(seeds) { seed ->
+            this[News.title] = seed.title
+            this[News.imageUrl] = seed.imageUrl
+            this[News.description] = seed.description.toJsonString()
+            this[News.date] = seed.date
+        }
+    }
+
     private data class ServiceSeed(
         val title: String,
         val imageUrl: String,
@@ -159,5 +248,12 @@ object DatabaseFactory {
         val shortDesc: String,
         val bulletPoints: List<String>,
         val priceFrom: Int
+    )
+
+    private data class NewsSeed(
+        val title: String,
+        val imageUrl: String,
+        val description: List<String>,
+        val date: LocalDate
     )
 }

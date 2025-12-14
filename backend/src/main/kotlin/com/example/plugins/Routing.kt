@@ -1,6 +1,8 @@
 package com.example.plugins
 
+import com.example.routes.bookingRoutes
 import com.example.routes.healthRoutes
+import com.example.routes.newsRoutes
 import com.example.routes.serviceRoutes
 import io.ktor.server.application.Application
 import io.ktor.server.http.content.staticResources
@@ -15,6 +17,8 @@ fun Application.configureRouting() {
         route("/api") {
             healthRoutes()
             serviceRoutes()
+            newsRoutes()
+            bookingRoutes()
         }
     }
 }
