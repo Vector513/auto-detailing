@@ -84,8 +84,31 @@ function displayServices(services) {
         button.addEventListener('click', () => {
             const serviceTitle = button.getAttribute('data-service-title');
             if (serviceTitle) {
-                // Переходим на страницу записи с параметром услуги
-                window.location.href = `booking.html?service=${encodeURIComponent(serviceTitle)}`;
+                const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+
+                if (currentPage === 'index.html' || currentPage === '' || currentPage === '/') {
+                    // Если на главной странице - скроллим до формы записи
+                    const bookingSection = document.querySelector('.booking');
+                    if (bookingSection) {
+                        bookingSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+
+                        // Автозаполнение услуги после скролла
+                        setTimeout(() => {
+                            const serviceSelect = document.getElementById('serviceIndex');
+                            if (serviceSelect) {
+                                const option = Array.from(serviceSelect.options).find(
+                                    opt => opt.value === serviceTitle
+                                );
+                                if (option) {
+                                    serviceSelect.value = option.value;
+                                }
+                            }
+                        }, 500);
+                    }
+                } else {
+                    // Если на другой странице - переходим на страницу записи
+                    window.location.href = `booking.html?service=${encodeURIComponent(serviceTitle)}`;
+                }
             }
         });
     });

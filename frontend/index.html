@@ -99,6 +99,99 @@
                     </div>
                 </div>
             </section>
+            <section class="booking">
+                <div class="booking__content">
+                    <div class="booking__title-section">
+                        <h2 class="booking__heading">Записаться на услугу</h2>
+                    </div>
+                </div>
+            </section>
+            <div class="booking-hero">
+                <div class="booking-hero__content">
+                    <div class="booking__form-container">
+                        <h1 class="booking__title">ОСТАВЬТЕ ЗАЯВКУ — ГАРАНТИРУЕМ ЗВОНОК В ТЕЧЕНИЕ ЧАСА!</h1>
+                        <form class="booking__form" id="bookingFormIndex">
+                            <div class="booking__row">
+                                <div class="booking__field">
+                                    <label class="booking__label" for="name">
+                                        <svg class="booking__icon" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M10 10C12.7614 10 15 7.76142 15 5C15 2.23858 12.7614 0 10 0C7.23858 0 5 2.23858 5 5C5 7.76142 7.23858 10 10 10Z" fill="currentColor"/>
+                                            <path d="M10 12C5.58172 12 2 13.7909 2 16V20H18V16C18 13.7909 14.4183 12 10 12Z" fill="currentColor"/>
+                                        </svg>
+                                        Имя*
+                                    </label>
+                                    <input type="text" id="name" name="name" class="booking__input" placeholder="ВАШЕ ИМЯ" required />
+                                </div>
+                                <div class="booking__field">
+                                    <label class="booking__label" for="phone">
+                                        <svg class="booking__icon" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M18.5 14.5L15.5 11.5L13.5 13.5L6.5 6.5L8.5 4.5L5.5 1.5C4.4 0.4 2.6 0.4 1.5 1.5C0.4 2.6 0.4 4.4 1.5 5.5L4.5 8.5L6.5 6.5L13.5 13.5L11.5 15.5L14.5 18.5C15.6 19.6 17.4 19.6 18.5 18.5C19.6 17.4 19.6 15.6 18.5 14.5Z" fill="currentColor"/>
+                                        </svg>
+                                        ТЕЛЕФОН*
+                                    </label>
+                                    <input type="tel" id="phone" name="phone" class="booking__input" placeholder="+7(999)123-45-67" required />
+                                </div>
+                            </div>
+                            <div class="booking__row">
+                                <div class="booking__field booking__field--full">
+                                    <label class="booking__label" for="carModel">
+                                        <svg class="booking__icon" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M18 9L17 5H3L2 9V16H4V18H6V16H14V18H16V16H18V9ZM4.5 7H15.5L16.5 11H3.5L4.5 7ZM4 13V11H16V13H4Z" fill="currentColor"/>
+                                        </svg>
+                                        МОДЕЛЬ АВТО
+                                    </label>
+                                    <input type="text" id="carModel" name="carModel" class="booking__input" placeholder="TOYOTA CAMRY, HONDA CR-V..." />
+                                </div>
+                            </div>
+                            <div class="booking__row">
+                                <div class="booking__field booking__field--full">
+                                    <label class="booking__label" for="service">
+                                        <svg class="booking__icon" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M10 0L12.5 7.5L20 10L12.5 12.5L10 20L7.5 12.5L0 10L7.5 7.5L10 0Z" fill="currentColor"/>
+                                        </svg>
+                                        УСЛУГА*
+                                    </label>
+                                    <select id="serviceIndex" name="service" class="booking__input booking__select" required>
+                                        <option value="">ВЫБЕРИТЕ УСЛУГУ</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="booking__row">
+                                <div class="booking__field">
+                                    <label class="booking__label" for="date">
+                                        <svg class="booking__icon" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M6 2V4H4C2.9 4 2 4.9 2 6V16C2 17.1 2.9 18 4 18H16C17.1 18 18 17.1 18 16V6C18 4.9 17.1 4 16 4H14V2H12V4H8V2H6ZM4 8H16V16H4V8Z" fill="currentColor"/>
+                                        </svg>
+                                        ДАТА
+                                    </label>
+                                    <input type="text" id="date" name="date" class="booking__input" placeholder="дд.мм.ГГГГ" />
+                                </div>
+                                <div class="booking__field">
+                                    <label class="booking__label" for="time">
+                                        <svg class="booking__icon" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M10 2C5.6 2 2 5.6 2 10C2 14.4 5.6 18 10 18C14.4 18 18 14.4 18 10C18 5.6 14.4 2 10 2ZM10 16C6.7 16 4 13.3 4 10C4 6.7 6.7 4 10 4C13.3 4 16 6.7 16 10C16 13.3 13.3 16 10 16ZM10.5 5H9V11L14.2 14.2L15 12.9L10.5 10.2V5Z" fill="currentColor"/>
+                                        </svg>
+                                        ВРЕМЯ
+                                    </label>
+                                    <input type="text" id="time" name="time" class="booking__input" placeholder="чч:мм" />
+                                </div>
+                            </div>
+                            <div class="booking__row">
+                                <div class="booking__field booking__field--full">
+                                    <label class="booking__label" for="additionalInfo">
+                                        <svg class="booking__icon" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M11 9H9V11H11V9ZM11 5H9V7H11V5ZM11 13H9V15H11V13ZM3 3H17V5H3V3ZM3 7H17V9H3V7ZM3 11H17V13H3V11ZM3 15H17V17H3V15Z" fill="currentColor"/>
+                                        </svg>
+                                        ДОПОЛНИТЕЛЬНАЯ ИНФОРМАЦИЯ
+                                    </label>
+                                    <textarea id="additionalInfo" name="additionalInfo" class="booking__input booking__textarea" placeholder="ВАШИ ПОЖЕЛАНИЯ" rows="4"></textarea>
+                                </div>
+                            </div>
+                            <button type="submit" class="booking__submit">ОТПРАВИТЬ</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
         </div>
     </main>
     <footer class="footer">
@@ -107,6 +200,7 @@
     <script src="/scripts/navigation.js"></script>
     <script src="/scripts/services.js"></script>
     <script src="/scripts/news.js"></script>
+    <script src="/scripts/booking.js"></script>
 </body>
 
 </html>

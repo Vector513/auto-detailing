@@ -7,23 +7,41 @@ async function loadServices() {
         }
         const services = await response.json();
         console.log('Загружены услуги для формы:', services);
-        const serviceSelect = document.getElementById('service');
+
+        // Ищем select на главной странице и на странице записи
+        const serviceSelect = document.getElementById('service') || document.getElementById('serviceIndex');
 
         if (!serviceSelect) {
-            console.error('Элемент select с id="service" не найден');
+            console.error('Элемент select с id="service" или id="serviceIndex" не найден');
             return;
         }
 
-        // Clear existing options except the first one
-        serviceSelect.innerHTML = '<option value="">ВЫБЕРИТЕ УСЛУГУ</option>';
+        // Загружаем услуги в оба select (на главной странице и на странице записи)
+        const serviceSelects = [
+            document.getElementById('service'),
+            document.getElementById('serviceIndex')
+        ].filter(el => el !== null);
 
-        // Add services to dropdown
+        if (serviceSelects.length === 0) {
+            console.error('Элементы select с id="service" или id="serviceIndex" не найдены');
+            return;
+        }
+
+        // Clear existing options except the first one for all selects
+        serviceSelects.forEach(select => {
+            select.innerHTML = '<option value="">ВЫБЕРИТЕ УСЛУГУ</option>';
+        });
+
+        // Add services to all dropdowns
         if (services && services.length > 0) {
             services.forEach(service => {
                 const option = document.createElement('option');
                 option.value = service.title;
                 option.textContent = service.title;
-                serviceSelect.appendChild(option);
+                serviceSelects.forEach(select => {
+                    const optionClone = option.cloneNode(true);
+                    select.appendChild(optionClone);
+                });
             });
             console.log(`Добавлено ${services.length} услуг в выпадающий список`);
 
@@ -145,6 +163,7 @@ function autoFillService() {
     const serviceParam = urlParams.get('service');
 
     if (serviceParam) {
+        // Ищем select на странице записи
         const serviceSelect = document.getElementById('service');
         if (serviceSelect) {
             // Ждем, пока услуги загрузятся
@@ -167,6 +186,13 @@ function autoFillService() {
 document.addEventListener('DOMContentLoaded', () => {
     loadServices();
 
+    // Обработка формы на главной странице
+    const formIndex = document.getElementById('bookingFormIndex');
+    if (formIndex) {
+        formIndex.addEventListener('submit', handleSubmit);
+    }
+
+    // Обработка формы на странице записи
     const form = document.getElementById('bookingForm');
     if (form) {
         form.addEventListener('submit', handleSubmit);
