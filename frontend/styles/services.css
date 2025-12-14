@@ -142,6 +142,12 @@ video {
     font-size: 24px;
     font-family: SpectralSC, sans-serif;
     border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #000000;
+    text-decoration: none;
+    cursor: pointer;
 }
 
 
