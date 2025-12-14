@@ -1,6 +1,11 @@
 async function loadNews() {
     try {
-        const response = await fetch('http://localhost:8080/api/news');
+        // Определяем лимит в зависимости от страницы
+        const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+        const limit = currentPage === 'news.html' ? null : 3;
+        const url = limit ? `http://localhost:8080/api/news?limits=${limit}` : 'http://localhost:8080/api/news';
+
+        const response = await fetch(url);
         if (!response.ok) {
             throw new Error('Ошибка загрузки новостей');
         }
