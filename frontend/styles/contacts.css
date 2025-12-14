@@ -25,28 +25,29 @@
     background-image: url("/images/background_auto_contacts.svg");
     background-position: center;
     background-size: cover;
-    opacity: 0.4;
+    opacity: 0.6;
     z-index: 0;
 }
 
 .contacts-hero__content {
     position: relative;
     z-index: 1;
-    text-align: center;
     width: 100%;
     height: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: flex-start;
-    padding: 0 20px;
+    justify-content: center;
+    padding: 20px;
     box-sizing: border-box;
     overflow: hidden;
 }
 
 .contacts-hero .contacts__title {
-    /* margin-top: 30px; */
-    margin-bottom: 20px;
+    margin-top: 0;
+    margin-bottom: 30px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 
@@ -83,11 +84,13 @@
     margin: 0;
     display: flex;
     flex-direction: column;
-    gap: 20px;
-    align-items: center;
-    width: 100%;
+    gap: 15px;
+    align-items: flex-start;
+    width: auto;
     max-width: 100%;
     box-sizing: border-box;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .contacts__item {
