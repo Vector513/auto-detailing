@@ -5,7 +5,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Auto detailing</title>
+    <title>Новости - Auto detailing</title>
     <link rel="stylesheet" href="/fonts/fonts.css" />
     <link rel="stylesheet" href="/styles/global.css" />
     <link rel="stylesheet" href="/styles/style.css" />
@@ -16,7 +16,7 @@
         <div class="header__content">
             <div class="header__inner">
                 <a href="index.html" class="header__logo">
-                    <img src="images/logo.svg" class="logo" alt="Машина под автомойке" />
+                    <img src="/images/logo.svg" class="logo" alt="Машина под автомойке" />
                 </a>
                 <span class="name__company">
             AUTODETAIL
@@ -51,23 +51,15 @@
     </header>
     <main class="main">
         <div class="main__content">
-            <div class="cover">
-                <div class="greeting">
-                    <h1 class="cover__text name">Центр детейлинга AutoDetail</h1>
-                </div>
-                <div class="slogan">
-                    <span class="cover__text">Мы не просто моем — мы восстанавливаем, защищаем и сохраняем ценность вашего автомобиля. Технологии, достойные вашей машины.</span>
-                </div>
-            </div>
-            <section class="services">
-                <div class="services__content">
-                    <div class="services__title">
-                        <h2 class="services__heading">Наши услуги</h2>
+            <section class="news">
+                <div class="news__content">
+                    <div class="news__title">
+                        <h2 class="news__heading">Новости</h2>
                     </div>
                 </div>
-                <ul class="list__cards" id="servicesList">
-                    <!-- Карточки услуг будут загружены через JavaScript -->
-                </ul>
+                <div class="news__list" id="newsList">
+                    <!-- Новости будут загружены через JavaScript -->
+                </div>
             </section>
         </div>
     </main>
@@ -75,7 +67,7 @@
 
     </footer>
     <script src="/scripts/navigation.js"></script>
-    <script src="/scripts/services.js"></script>
+    <script src="/scripts/news.js"></script>
 </body>
 
 </html>
